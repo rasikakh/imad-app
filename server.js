@@ -78,13 +78,7 @@ app.get('/:articleName', function(req,res){
  res.send(CreateTemplate(articles[articleName]));
 });
 
-app.get('/article-two', function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
 
-app.get('/article-three', function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
