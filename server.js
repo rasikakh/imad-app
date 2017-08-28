@@ -14,7 +14,7 @@ app.get('/ui/style.css', function (req, res) {
 });
 
 var articles={
- 'ArticleOne':{
+ 'article-one':{
     title:'article one',
     heading:'article one',
     content:`
@@ -31,13 +31,13 @@ var articles={
    Here is the content of our first article.. Here is the content of our first article.. Here is the content of our first article..</p>
    `
 },
- 'ArticleTwo':{
+ 'article-two':{
     title:'article two',
     heading:'article two',
     content:`
    <p> here is the content of our second article</p>`
 },
- 'ArticleThree':{
+ 'article-three':{
     title:'article three',
     heading:'article three',
     content:`
