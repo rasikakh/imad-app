@@ -13,8 +13,54 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
+var ArticleOne= {
+    title:'article one',
+    heading:'article one',
+    content:`
+   <p> Here is the content of our first article.. Here is the content of our first article.. 
+   Here is the content of our first article.. Here is the content of our first article.. 
+   Here is the content of our first article.. Here is the content of our first article.. Here is the content of our first article..</p>
+  
+   <p> Here is the content of our first article.. Here is the content of our first article.. 
+   Here is the content of our first article.. Here is the content of our first article.. 
+   Here is the content of our first article.. Here is the content of our first article.. Here is the content of our first article..</p>
+   
+   <p> Here is the content of our first article.. Here is the content of our first article.. 
+   Here is the content of our first article.. Here is the content of our first article.. 
+   Here is the content of our first article.. Here is the content of our first article.. Here is the content of our first article..</p>
+   `
+};
+
+function CreateTemplate(data){
+    var title = data.title;
+    var heading = data.heading;
+    var content = data.content;
+    
+var HTMLtemplate=`
+ <html>
+ <head>
+  <title>${title}</title>
+   <meta name="viewport" content="width=device-width , initial-scale=1" />
+ <link href="/ui/style.css" rel="stylesheet" />
+ </head>
+ <body>
+     <div class="container">
+    <div>
+      <a href='/'>home</a>
+    </div>
+   <hr>
+   <h3>${heading}</h3>
+   <div>
+   <p>${content}</p>
+   </div>
+ </div>
+ </body>
+</html>`;
+ return HTMLtemplate; 
+}
+
 app.get('/article-one', function(req,res){
- res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+ res.send(CreateTemplate(ArticleOne));
 });
 
 app.get('/article-two', function(req,res){
