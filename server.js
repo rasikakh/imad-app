@@ -13,7 +13,8 @@ app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-var ArticleOne= {
+var articles={
+ ArticleOne:{
     title:'article one',
     heading:'article one',
     content:`
@@ -29,6 +30,19 @@ var ArticleOne= {
    Here is the content of our first article.. Here is the content of our first article.. 
    Here is the content of our first article.. Here is the content of our first article.. Here is the content of our first article..</p>
    `
+},
+ ArticleTwo:{
+    title:'article two',
+    heading:'article two',
+    content:`
+   <p> here is the content of our second article</p>`
+},
+ ArticleThree:{
+    title:'article three',
+    heading:'article three',
+    content:`
+   <p> here is the content of our third article</p>`
+},
 };
 
 function CreateTemplate(data){
@@ -59,8 +73,9 @@ var HTMLtemplate=`
  return HTMLtemplate; 
 }
 
-app.get('/article-one', function(req,res){
- res.send(CreateTemplate(ArticleOne));
+app.get('/:articleName', function(req,res){
+  var articleName=req.params.articleName;  
+ res.send(CreateTemplate(articles[articleName]));
 });
 
 app.get('/article-two', function(req,res){
