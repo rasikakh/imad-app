@@ -20,8 +20,8 @@ body {
     height: 200px;
 }
 
-   .container{
+  .container{
     max-width : 880px;
     color : blue ;
     margin : 0 auto ;
-   }
+   } 
